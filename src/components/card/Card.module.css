@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Ibarra+Real+Nova:ital,wght@0,700;1,700&family=Inter&display=swap');
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0;
+    background-color: #1f2937;
+    margin: 30px;
+    width: 320px;
+    height: 550px;
+    border-radius: 20px;
+}
+
+.cardImg {
+    width: 100%;
+    height: 75%;
+    border-radius: 20px 20px 0 0;
+}
+
+.data {
+    padding: 20px;
+}
+
+.animeTitle {
+    font-family: 'Fira Sans', sans-serif;
+    color: white;
+    font-size: 1.2rem;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnTrailer {
+    padding: 12px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #4f46e5;
+    color: white;
+}
+
+.btnDetails {
+    padding: 12px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: Black;
+}

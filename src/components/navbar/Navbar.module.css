@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&family=Ibarra+Real+Nova:ital,wght@0,700;1,700&family=Inter&display=swap');
+
+.navbar {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 30px;
+    height: 100px;
+    background-color: #1f2937;
+}
+
+.heading {
+    cursor: pointer;
+    text-decoration: none;
+    color: #6366f1;
+}
+
+.form label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 500px;
+    padding: 13px 20px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    background-color: #374151;
+    outline: none;
+    color: white;
+}
+
+.form input:focus {
+    background-color: white;
+    color: black;
+}
+
+::placeholder {
+    color: white;
+}
+
+.btn {
+    padding: 13px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    border: none;
+    background-color: #4f46e5;
+    color: white;
+}
