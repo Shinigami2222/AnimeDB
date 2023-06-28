@@ -1,9 +1,9 @@
 import classes from "./Card.module.css";
-import { Link } from "react-router-dom";
-import querystring from "querystring";
+import { useState } from "react";
+import DetailModal from "../detailModal/DetailModal";
+import Backdrop from "../backdrop/Backdrop";
 
 function Card(props) {
-  const g = Object.assign({}, props.genres);
   const data = {
     img: props.img,
     title: props.title,
@@ -11,7 +11,7 @@ function Card(props) {
     episodes: props.episodes,
     rank: props.rank,
     score: props.score,
-    genres: g,
+    genres: props.genres,
     synopsis: props.synopsis,
   };
   let title = props.title;
@@ -23,8 +23,15 @@ function Card(props) {
   if (props.trailer !== undefined && props.trailer.url !== undefined) {
     url = props.trailer.url;
   }
-  let dataString = querystring.stringify(data);
-  const pageUrl = `/anime-details/${dataString}`;
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  function decisionHandler() {
+    setModalIsOpen(true);
+  }
+  function closeModularHandler() {
+    setModalIsOpen(false);
+  }
+
   return (
     <div className={classes.card}>
       <img src={props.img} alt={title} className={classes.cardImg} />
@@ -34,11 +41,15 @@ function Card(props) {
           <a href={url.includes("//") ? url : `//${url}`}>
             <button className={classes.btnTrailer}>Trailer</button>
           </a>
-          <Link to={pageUrl}>
-            <button className={classes.btnDetails}>Details</button>
-          </Link>
+          <button className={classes.btnDetails} onClick={decisionHandler}>
+            Details
+          </button>
         </div>
       </div>
+      {modalIsOpen && (
+        <DetailModal data={data} onCancel={closeModularHandler} />
+      )}
+      {modalIsOpen && <Backdrop onCancel={closeModularHandler} />}
     </div>
   );
 }

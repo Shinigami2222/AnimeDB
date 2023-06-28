@@ -17,6 +17,10 @@
     color: #6366f1;
 }
 
+.form {
+    width: 45%;
+}
+
 .form label {
     display: flex;
     justify-content: center;
@@ -24,7 +28,7 @@
 }
 
 .form input {
-    width: 500px;
+    width: 100%;
     padding: 13px 20px;
     border-radius: 5px 0 0 5px;
     border: none;
@@ -43,7 +47,8 @@
 }
 
 .btn {
-    padding: 13px 20px;
+    width: 20%;
+    padding: 13px 0;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     border: none;

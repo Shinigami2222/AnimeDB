@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Navbar.module.css";
 import { useDispatch } from "react-redux";
 import { setAnimeList } from "../../redux/searchBar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
   const dispatch = useDispatch();
   const [inputName, setInputName] = useState("");
+  const [search, setSearch] = useState(false);
 
   async function onSubmitHandler(event) {
     event.preventDefault();
@@ -18,11 +19,21 @@ function Navbar() {
     dispatch(setAnimeList({ list: data, animeName: inputName }));
 
     setInputName("");
+    setSearch(!search);
   }
-
+  async function resetAnimeList() {
+    const top = await fetch(
+      `https://api.jikan.moe/v4/top/anime?q=bypopularity`
+    ).then((res) => res.json());
+    dispatch(setAnimeList({ list: top, animeName: "" }));
+  }
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/AnimeDB");
+  }, [search]);
   return (
     <div className={classes.navbar}>
-      <Link to="/" className={classes.heading}>
+      <Link to="/AnimeDB" onClick={resetAnimeList} className={classes.heading}>
         <p>AnimeDB</p>
       </Link>
       <form className={classes.form} onSubmit={onSubmitHandler}>
