@@ -20,9 +20,10 @@ function Card(props) {
     title += "...";
   }
   let url = "youtube.com";
-  if (props.trailer !== undefined && props.trailer.url !== undefined) {
+  if (props.trailer != null && props.trailer.url != null) {
     url = props.trailer.url;
   }
+  console.log(props);
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
   function decisionHandler() {

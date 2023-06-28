@@ -16,6 +16,7 @@ function AnimeList(props) {
               score={anime.score}
               genres={anime.genres}
               synopsis={anime.synopsis}
+              trailer={anime.trailer}
             />
           </li>
         );
